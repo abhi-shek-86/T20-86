@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Language Translator</title>
+    <link rel="stylesheet" href="../static/about.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-logo">
+            <span>Language Translator</span>
+        </div>
+        <div class="nav-links">
+            <a href="{{ url_for('index') }}">Home</a>
+            <a href="{{ url_for('about') }}" class="active">About</a>
+            <a href="{{ url_for('team') }}">Team</a>
+        </div>
+    </nav>
+
+    <!-- About Section -->
+    <div class="container">
+        <h1>About Our Translation Platform</h1>
+        
+        <div class="intro-section">
+            <p>Our Language Translator is an advanced AI-powered application designed to break down language barriers through seamless text translation across multiple languages. Leveraging the <strong>MarianMT Pretrained Model</strong>, we deliver translations that preserve context, idioms, and cultural nuances with remarkable accuracy.</p>
+        </div>
+        
+        <h2>Project Overview</h2>
+        <p>In today's interconnected global landscape, effective communication across language barriers is more crucial than ever. Our translation platform addresses this need by providing:</p>
+        <ul class="features-list">
+            <li><strong>Real-time translation</strong> between dozens of language pairs</li>
+            <li><strong>Context-aware processing</strong> that preserves meaning beyond word-for-word translation</li>
+            <li><strong>User-friendly interface</strong> designed for accessibility and ease of use</li>
+            <li><strong>Optimized performance</strong> for quick translations even with longer texts</li>
+        </ul>
+        
+        <h2>The Technology Behind</h2>
+        <div class="tech-section">
+            <h3>MarianMT Model</h3>
+            <p>At the core of our translation engine is the <strong>MarianMT model</strong>, a state-of-the-art neural machine translation framework. Unlike traditional statistical approaches, MarianMT utilizes:</p>
+            <ul>
+                <li>Advanced <strong>encoder-decoder architecture</strong> with attention mechanisms</li>
+                <li>Training on <strong>massive parallel corpora</strong> across diverse domains</li>
+                <li><strong>Contextual understanding</strong> that captures subtle linguistic nuances</li>
+                <li><strong>Efficient implementation</strong> for fast processing with limited resources</li>
+            </ul>
+        </div>
+        
+        <h2>Technical Stack</h2>
+        <ul class="tech-stack">
+            <li><strong>Backend:</strong> Python, Flask, MarianMT Model, Transformers library</li>
+            <li><strong>Frontend:</strong> HTML5, CSS3, JavaScript, Responsive Design</li>
+            
+            <li><strong>Performance:</strong> Optimized caching, Asynchronous processing</li>
+        </ul>
+        
+        <h2>How It Works</h2>
+        <p>Our translation process follows these steps:</p>
+        <ul class="process-list">
+            <li>User inputs text in the source language</li>
+            <li>The system identifies the language pair for translation</li>
+            <li>Text is preprocessed and tokenized</li>
+            <li>The MarianMT model generates a contextually accurate translation</li>
+            <li>Post-processing refines the output for natural reading</li>
+            <li>The translation is delivered to the user</li>
+        </ul>
+        
+        <h2>Applications</h2>
+        <p>Our Language Translator serves diverse needs including:</p>
+        <ul class="applications-list">
+            <li>Educational support for language learners</li>
+            <li>Business communication for international operations</li>
+            <li>Travel assistance for tourists</li>
+            <li>Content localization for global marketing</li>
+            <li>Cross-cultural research and collaboration</li>
+        </ul>
+        
+        <div class="future-section">
+            <h2>Future Developments</h2>
+            <p>We're continuously improving our platform with upcoming features including:</p>
+            <ul>
+                <li>Voice translation capabilities</li>
+                <li>Document translation with preserved formatting</li>
+                <li>Domain-specific translation models</li>
+                <li>Offline translation mode</li>
+            </ul>
+        </div>
+    </div>
+    
+    <footer class="footer">
+        <p>© 2025 Language Translator Project | Developed  by Team 20 - 86</p>
+    </footer>
+</body>
+</html>

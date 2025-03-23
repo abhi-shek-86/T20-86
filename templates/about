@@ -1,0 +1,39 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Language Translator</title>
+    <!-- Fix the CSS path using url_for -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='about.css') }}">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-logo">
+            <span>Language Translator</span>
+        </div>
+        <div class="nav-links">
+            <a href="{{ url_for('index') }}">Home</a>
+            <a href="{{ url_for('about') }}">About</a>
+            <a href="{{ url_for('team') }}">Team</a>
+            <!-- Remove contact link as there's no route for it -->
+        </div>
+    </nav>
+
+    <!-- About Section -->
+    <div class="container">
+        <h1>About Us</h1>
+        <!-- Remove markdown syntax and use HTML -->
+        <p>Our Language Translator is an AI-powered application that allows seamless text translation between multiple languages. 
+           Using the <strong>MarianMT Pretrained Model</strong>, we ensure accurate and efficient translations.</p>
+        
+        <h2>Technologies Used</h2>
+        <ul>
+            <li><strong>Backend:</strong> Python, Flask, MarianMT Model</li>
+            <li><strong>Frontend:</strong> HTML, CSS, JavaScript</li>
+        </ul>
+    </div>
+</body>
+</html>

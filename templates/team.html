@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Team | Language Translator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='team.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">Language Translator</div>
+        <div class="nav-links">
+            <a href="{{ url_for('index') }}">Home</a>
+            <a href="{{ url_for('about') }}">About</a>
+            <a href="{{ url_for('team') }}" class="active">Team</a>
+        </div>
+    </nav>
+
+    <main class="team-container">
+        <h1>Meet Our Team</h1>
+        <div class="team-grid">
+            <div class="team-card">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <img src="../static/images/Black Suit.jpg" alt="John Doe">
+                        <h3>VASAMSETTI ABHISHEK</h3>
+                        <p>Project Co-Ordinator & Frontend Developer</p>
+                    </div>
+                    <div class="card-back">
+                        <h3>VASAMSETTI ABHISHEK</h3>
+                        <p>Full Stack & UX Expert</p>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="team-card">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <img src="static\images\WhatsApp Image 2025-03-13 at 13.33.01_ad048bdf.jpg" alt="Sarah Wilson">
+                        <h3>Dunne Subrahmanyam</h3>
+                        <p>Backend Developer</p>
+                    </div>
+                    <div class="card-back">
+                        <h3>Dunne Subrahmanyam</h3>
+                        <p>Backend Developer</p>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="team-card">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <img src="static\images\roksy.jpg" alt="Michael Smith">
+                        <h3>Rajesh</h3>
+                        <p>Machine Learning Engineer</p>
+                    </div>
+                    <div class="card-back">
+                        <h3>Rajesh</h3>
+                        <p>Machine Learning Engineer (NLP Specialization)</p>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="team-card">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <img src="static\images\IMG_0749.JPG" alt="Emily Davis">
+                        <h3>Anji</h3>
+                        <p>Documentation and Quality Analyst</p>
+                    </div>
+                    <div class="card-back">
+                        <h3>Anji</h3>
+                        <p>Documentation and Quality Analyst</p>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="team-card">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <img src="static\images\Hameed.jpg" alt="David Brown">
+                        <h3>Hameed Raja</h3>
+                        <p>Dataset Collector and Preprocessor</p>
+                    </div>
+                    <div class="card-back">
+                        <h3>Hameed Raja</h3>
+                        <p>Dataset Collector and Preprocessor</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </main>
+</body>
+</html>

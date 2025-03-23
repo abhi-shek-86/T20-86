@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Language Translator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <!-- Add Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-logo">
+            <span>Language Translator</span>
+        </div>
+        <div class="nav-links">
+            <a href="{{ url_for('index') }}">Home</a>
+            <a href="{{ url_for('about') }}">About</a>
+            <a href="{{ url_for('team') }}">Team</a>
+        </div>
+    </nav>
+    <div class="container">
+        <h1>Language Translator</h1>
+
+        <label for="text">Enter Text:</label>
+        <textarea id="text" placeholder="Type here..."></textarea>
+
+        <div class="dropdowns">
+            <select id="src_lang" onchange="updateTargetLanguages()">
+                <option value="" disabled selected>Select Source Language</option>
+                {% for src in supported_pairs.keys() %}
+                    <option value="{{ src }}">{{ src.upper() }}</option>
+                {% endfor %}
+            </select>
+
+            <select id="tgt_lang">
+                <option value="" disabled selected>Select Target Language</option>
+            </select>
+        </div>
+
+        <button id="translateBtn" onclick="translateText()">Translate</button>
+        <div id="loader" class="loader"></div>
+        <div id="loadingText" class="loading-text">Translating...</div>
+        <h3>Translation:</h3>
+        <p id="translation"></p>
+    </div>
+
+    <script>
+        const supportedPairs = {{ supported_pairs | tojson }};
+
+        function showLoader() {
+            document.getElementById('loader').style.display = 'block';
+            document.getElementById('loadingText').style.display = 'block';
+            document.getElementById('translation').style.display = 'none';
+            document.getElementById('translateBtn').disabled = true;
+            document.getElementById('translateBtn').style.opacity = '0.5';
+        }
+
+        function hideLoader() {
+            document.getElementById('loader').style.display = 'none';
+            document.getElementById('loadingText').style.display = 'none';
+            document.getElementById('translation').style.display = 'block';
+            document.getElementById('translateBtn').disabled = false;
+            document.getElementById('translateBtn').style.opacity = '1';
+        }
+
+        function updateTargetLanguages() {
+            let srcLang = document.getElementById("src_lang").value;
+            let tgtDropdown = document.getElementById("tgt_lang");
+            tgtDropdown.innerHTML = '<option value="" disabled selected>Select Target Language</option>';
+
+            if (supportedPairs[srcLang]) {
+                supportedPairs[srcLang].forEach(tgt => {
+                    let option = document.createElement("option");
+                    option.value = tgt;
+                    option.textContent = tgt.toUpperCase();
+                    tgtDropdown.appendChild(option);
+                });
+            }
+        }
+
+        function translateText() {
+            let text = document.getElementById("text").value;
+            let srcLang = document.getElementById("src_lang").value;
+            let tgtLang = document.getElementById("tgt_lang").value;
+
+            if (!text || !srcLang || !tgtLang) {
+                alert("Please enter text and select languages!");
+                return;
+            }
+
+            showLoader();
+
+            fetch("/translate", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ text, src_lang: srcLang, tgt_lang: tgtLang })
+            })
+            .then(response => response.json())
+            .then(data => {
+                hideLoader();
+                document.getElementById("translation").innerText = data.translation;
+            })
+            .catch(error => {
+                hideLoader();
+                document.getElementById("translation").innerText = "Error occurred during translation";
+                console.error("Error:", error);
+            });
+        }
+    </script>
+</body>
+</html>
